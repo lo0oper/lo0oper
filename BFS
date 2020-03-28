@@ -1,0 +1,21 @@
+void bfs(int s, vector<int> adj[], bool vis[], int N)
+{
+ queue<int > q;
+ q.push(s);     // enqueue the root befire hand 
+ vis[s]=true;      // make the roo visited before hand
+ while(!q.empty()){
+     int t=q.front();
+     int size= adj[t].size();
+     cout<<t<<" ";
+     for(int i =0; i< size ; i++){
+         
+         if(vis[adj[t][i]]==false){    // remember vis[adj[t][i]] not vis[i]
+            vis[adj[t][i]]=true;
+           // cout<<"\n vis ["<<adj[t][i]<<"] marked visited";
+            q.push(adj[t][i]);
+         }
+     }
+    
+     q.pop();
+ }
+}
